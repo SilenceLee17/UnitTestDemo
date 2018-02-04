@@ -32,6 +32,33 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
+- (void)testa001 {
+}
+
+- (void)testa002 {
+}
+
+- (void)testa003 {
+}
+
+- (void)testA001 {
+}
+
+- (void)testA002 {
+}
+
+- (void)testA003 {
+}
+
+- (void)testB001 {
+}
+
+- (void)testC002 {
+}
+
+- (void)testD003 {
+}
+
 - (void)testPerformanceExample {
     //    性能测试用例
     // This is an example of a performance test case.
