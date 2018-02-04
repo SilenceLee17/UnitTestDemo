@@ -8,6 +8,22 @@
 
 #import <XCTest/XCTest.h>
 
+static NSString *const NIM_TEST_NOTIFY_KEY = @"nim_test_notification";
+#define WAIT_WITH_KEY(key) do{\
+[self expectationForNotification:(key) object:nil handler:nil];\
+[self waitForExpectationsWithTimeout:30 handler:nil];\
+}while(0);
+
+#define NOTIFY_WITH_KEY(key) do{\
+dispatch_async(dispatch_get_main_queue(), ^{ \
+[[NSNotificationCenter defaultCenter] postNotificationName:(key) object:nil];\
+});\
+}while(0);
+
+
+#define WAIT       WAIT_WITH_KEY(NIM_TEST_NOTIFY_KEY)
+#define NOTIFY     NOTIFY_WITH_KEY(NIM_TEST_NOTIFY_KEY)
+
 @interface UnitTestDemoTests : XCTestCase
 
 @end
