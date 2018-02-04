@@ -48,6 +48,26 @@ dispatch_async(dispatch_get_main_queue(), ^{ \
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
+- (void) testArraySorting {
+    // Given
+    NSArray *input = @[@1, @7, @6, @3, @10];
+    // When
+    NSArray *output = [input sortedArrayUsingSelector:@selector(compare:)];
+    // Then
+    NSArray *expect = @[@1, @3, @6, @7, @10];
+    
+//    不能如此验证
+//    XCTAssertEqual(output, expect);
+    
+    XCTAssertTrue(output.count == expect.count);
+    
+    [output enumerateObjectsUsingBlock:^(id  _Nonnull outObj, NSUInteger idx, BOOL * _Nonnull stop) {
+        id expectObj = expect[idx];
+        XCTAssertEqual(outObj, expectObj);
+    }];
+    
+}
+
 - (void)testa001 {
 }
 
